@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/CFraction.h
+
+C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/main.cpp
+iostream
+-
+CFraction.h
+C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/CFraction.h
+
