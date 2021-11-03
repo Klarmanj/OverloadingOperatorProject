@@ -3,9 +3,9 @@
 #include "Exceptions.h"
 
 int main() {
-    CFraction test(1,2);
+    CFraction test(3,5);
     CFraction test2(3,5);
-    test / test2;
-    test - test2;
+    bool isEqual = test > test2;
+    std::cout << isEqual;
 
 }

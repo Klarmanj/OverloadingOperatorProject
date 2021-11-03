@@ -4,8 +4,8 @@
 
 class CFraction {
     int numerator, denominator;
-    static int count;
-    void simplify();
+//    static int count;
+
 
 public:
     CFraction();
@@ -19,10 +19,11 @@ public:
 //    CFraction operator-(double) const;
 //    CFraction operator*(double) const;
 //    CFraction operator/(double) const;
-//    bool operator==(const CFraction&) const;
-//    bool operator>(const CFraction&) const;
-//    bool operator<(const CFraction&) const;
+    bool operator==(const CFraction&) const;
+    bool operator>(const CFraction&) const;
+    bool operator<(const CFraction&) const;
 //    std::istream& operator>>(std::istream&, CFraction&) const;
+    void simplify();
 };
 
 
