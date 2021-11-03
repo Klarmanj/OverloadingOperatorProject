@@ -20,3 +20,27 @@ CFraction::CFraction(const int n, const int d) {
         abort();
     }
 }
+//CFraction::CFraction(const double num) {
+//
+//}
+
+CFraction CFraction::operator+(const CFraction &add) const {
+    int top = (this->numerator*add.denominator) + (this->denominator*add.numerator);
+    int bottom = (this->denominator*add.denominator);
+    std::cout << top << "/" << bottom;
+}
+CFraction CFraction::operator-(const CFraction &sub) const{
+    int top = (this->numerator*sub.denominator) - (this->denominator*sub.numerator);
+    int bottom = (this->denominator*sub.denominator);
+    std::cout << top << "/" << bottom;
+}
+CFraction CFraction::operator*(const CFraction &multiply) const {
+    int top = (this->numerator * multiply.numerator);
+    int bottom = (this->denominator * multiply.denominator);
+    std::cout << top << "/" << bottom;
+}
+CFraction CFraction::operator/(const CFraction &divide) const {
+    int top = (this->numerator * divide.denominator);
+    int bottom = (this->denominator * divide.numerator);
+    std::cout << top << "/" << bottom;
+}
