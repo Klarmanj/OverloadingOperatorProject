@@ -168,6 +168,33 @@ CFraction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\uOverloadingOperatorProject.dir\build.make CMakeFiles/uOverloadingOperatorProject.dir/CFraction.cpp.s
 .PHONY : CFraction.cpp.s
 
+Exceptions.obj: Exceptions.cpp.obj
+
+.PHONY : Exceptions.obj
+
+# target to build an object file
+Exceptions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\uOverloadingOperatorProject.dir\build.make CMakeFiles/uOverloadingOperatorProject.dir/Exceptions.cpp.obj
+.PHONY : Exceptions.cpp.obj
+
+Exceptions.i: Exceptions.cpp.i
+
+.PHONY : Exceptions.i
+
+# target to preprocess a source file
+Exceptions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\uOverloadingOperatorProject.dir\build.make CMakeFiles/uOverloadingOperatorProject.dir/Exceptions.cpp.i
+.PHONY : Exceptions.cpp.i
+
+Exceptions.s: Exceptions.cpp.s
+
+.PHONY : Exceptions.s
+
+# target to generate assembly for a file
+Exceptions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\uOverloadingOperatorProject.dir\build.make CMakeFiles/uOverloadingOperatorProject.dir/Exceptions.cpp.s
+.PHONY : Exceptions.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -207,6 +234,9 @@ help:
 	@echo ... CFraction.obj
 	@echo ... CFraction.i
 	@echo ... CFraction.s
+	@echo ... Exceptions.obj
+	@echo ... Exceptions.i
+	@echo ... Exceptions.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

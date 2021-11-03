@@ -86,6 +86,12 @@
 		<Unit filename="C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/CFraction.h">
 			<Option target="uOverloadingOperatorProject"/>
 		</Unit>
+		<Unit filename="C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/Exceptions.cpp">
+			<Option target="uOverloadingOperatorProject"/>
+		</Unit>
+		<Unit filename="C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/Exceptions.h">
+			<Option target="uOverloadingOperatorProject"/>
+		</Unit>
 		<Unit filename="C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/main.cpp">
 			<Option target="uOverloadingOperatorProject"/>
 		</Unit>

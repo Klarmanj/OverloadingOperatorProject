@@ -19,7 +19,7 @@ public:
     CFraction operator*(double) const;
     CFraction operator/(double) const;
     bool operator==(const CFraction&) const;
-    bool operator>(const CFraction&);
+    bool operator>(const CFraction&) const;
 };
 
 

@@ -3,4 +3,4 @@ project(uOverloadingOperatorProject)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(uOverloadingOperatorProject main.cpp CFraction.cpp CFraction.h)
+add_executable(uOverloadingOperatorProject main.cpp CFraction.cpp CFraction.h Exceptions.cpp Exceptions.h)

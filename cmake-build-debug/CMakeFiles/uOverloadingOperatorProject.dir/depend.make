@@ -3,7 +3,12 @@
 
 CMakeFiles/uOverloadingOperatorProject.dir/CFraction.cpp.obj: ../CFraction.cpp
 CMakeFiles/uOverloadingOperatorProject.dir/CFraction.cpp.obj: ../CFraction.h
+CMakeFiles/uOverloadingOperatorProject.dir/CFraction.cpp.obj: ../Exceptions.h
+
+CMakeFiles/uOverloadingOperatorProject.dir/Exceptions.cpp.obj: ../Exceptions.cpp
+CMakeFiles/uOverloadingOperatorProject.dir/Exceptions.cpp.obj: ../Exceptions.h
 
 CMakeFiles/uOverloadingOperatorProject.dir/main.cpp.obj: ../CFraction.h
+CMakeFiles/uOverloadingOperatorProject.dir/main.cpp.obj: ../Exceptions.h
 CMakeFiles/uOverloadingOperatorProject.dir/main.cpp.obj: ../main.cpp
 
