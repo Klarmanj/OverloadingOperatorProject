@@ -11,15 +11,15 @@ class CFraction {
 public:
     CFraction();
     CFraction(const int, const int);
-//    CFraction(const double);
+    CFraction(const double);
     CFraction operator+(const CFraction&) const;
     CFraction operator-(const CFraction&) const;
     CFraction operator*(const CFraction&) const;
     CFraction operator/(const CFraction&) const;
-//    CFraction operator+(double) const;
-//    CFraction operator-(double) const;
-//    CFraction operator*(double) const;
-//    CFraction operator/(double) const;
+    CFraction operator+(double) const;
+    CFraction operator-(double) const;
+    CFraction operator*(double) const;
+    CFraction operator/(double) const;
     bool operator==(const CFraction&) const;
     bool operator>(const CFraction&) const;
     bool operator<(const CFraction&) const;

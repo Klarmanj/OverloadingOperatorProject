@@ -9,12 +9,11 @@ int main() {
 //    bool isEqual = test < test2;
 //    std::cout << isEqual;
 
-
+//
     CFraction frac1;
     std::ifstream input("Input.txt");
     if(input.is_open()){
         input >> frac1;
     }
-
 
 }

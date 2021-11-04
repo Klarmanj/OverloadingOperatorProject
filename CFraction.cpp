@@ -2,6 +2,7 @@
 #include "Exceptions.h"
 #include <sstream>
 #include <fstream>
+#include <cmath>
 
 
 CFraction::CFraction() {
@@ -21,9 +22,18 @@ CFraction::CFraction(const int n, const int d) {
         abort();
     }
 }
-//CFraction::CFraction(const double num) {
-//
-//}
+CFraction::CFraction(const double num) {
+    numerator = 0;
+    denominator = 1;
+    std::string tempNum = std::to_string(num);
+    size_t decimalPosition = tempNum.find('.');
+    std::string afterDecimal = tempNum.substr(decimalPosition+1);
+    int precision = afterDecimal.length();
+    numerator = std::stoi(afterDecimal);
+    denominator = pow(10, precision);
+    std::string tempNum2 = tempNum.substr(0, decimalPosition);
+    numerator = (denominator*std::stoi(tempNum2))+numerator;
+}
 
 CFraction CFraction::operator+(const CFraction &add) const {
     int top = (this->numerator*add.denominator) + (this->denominator*add.numerator);
@@ -48,6 +58,26 @@ CFraction CFraction::operator/(const CFraction &divide) const {
     int bottom = (this->denominator * divide.numerator);
     CFraction divided(top, bottom);
     return divided;
+}
+CFraction CFraction::operator+(double temp) const {
+    CFraction rightSide(temp);
+    rightSide.simplify();
+    return this->operator+(rightSide);
+}
+CFraction CFraction::operator-(double temp) const {
+    CFraction rightSide(temp);
+    rightSide.simplify();
+    return this->operator-(rightSide);
+}
+CFraction CFraction::operator*(double temp) const {
+    CFraction rightSide(temp);
+    rightSide.simplify();
+    return this->operator*(rightSide);
+}
+CFraction CFraction::operator/(double temp) const {
+    CFraction rightSide(temp);
+    rightSide.simplify();
+    return this->operator/(rightSide);
 }
 void CFraction::simplify() {
     int max = (numerator < denominator) ? denominator : numerator;
@@ -79,57 +109,120 @@ std::istream& operator>>(std::istream &input, CFraction &frac1) {
     std::string line;
     char choice;
     std::ofstream output("output.txt");
+    CFraction frac2;
+
+
     while(std::getline(input,line)){
         std::istringstream ss(line);
         ss >> choice;
         std::string num1;
         ss >> num1;
         size_t found = num1.find('.');
-        if(found != std::string::npos){
-            double num1_double = std::stod(num1);
-            std::string num2;
-            ss >> num2;
-            size_t found2 = num2.find('.');
-            if(found2 != std::string::npos){
-                double num2_double = std::stod(num2);
+        switch (choice) {
+            case 'a':
+            case 's':
+            case 'm':
+            case 'd':
+            case 'c':
+            {
+                frac1.numerator = std::stoi(num1);
+                ss >> frac1.denominator >> frac2.numerator >> frac2.denominator;
+                break;
             }
-        }
-        else{
-            frac1.numerator = std::stoi(num1);
-            std::string num2;
-            ss >> num2;
-            frac1.denominator = std::stoi(num2);
-        }
-        std::string num3;
-        ss >> num3;
-        size_t found3 = num3.find('.');
-        if(found3 != std::string::npos) {
-            double num3_double = std::stod(num3);
-        }
+            default:
+            {
+                // Check if first digit is a double or integer
+                if(found != std::string::npos) {
+                   // do stuff
+                    double num1_double = std::stod(num1);
 
-        CFraction frac2;
-        std::string num4;
-        frac2.numerator = stoi(num3);
-        ss >> num4;
-        frac2.denominator = stoi(num4);
+                    size_t decimalPosition = num1.find('.');
+                    std::string afterDecimal = num1.substr(decimalPosition+1);
+                    int precision = afterDecimal.length();
+                    frac1.numerator = std::stoi(afterDecimal);
+                    frac1.denominator = pow(10, precision);
+                    std::string tempNum2 = num1.substr(0, decimalPosition);
+                    frac1.numerator = (frac1.denominator*std::stoi(tempNum2))+frac1.numerator;
+                   // now, check the second digit
+                    std::string num2;
+                    ss >> num2;
+                    size_t found2 = num2.find('.');
+                    if(found2 != std::string::npos) {
+                        double num2_double = std::stod(num2);
+
+                        size_t decimalPosition = num2.find('.');
+                        std::string afterDecimal = num2.substr(decimalPosition+1);
+                        int precision = afterDecimal.length();
+                        frac2.numerator = std::stoi(afterDecimal);
+                        frac2.denominator = pow(10, precision);
+                        std::string tempNum2 = num2.substr(0, decimalPosition);
+                        frac2.numerator = (frac2.denominator*std::stoi(tempNum2))+frac2.numerator;
+                    }
+                    // second digit is an integer, which means the third is an integer
+                    else {
+                    std::string num3;
+                    ss >> num3;
+                    frac2.numerator = std::stoi(num2);
+                    frac2.denominator = std::stoi(num3);
+                    }
+                }
+                // first digit is integer, so second digit is integer as well and we have our first fraction
+                else {
+                    // do stuff (create a fraction out of integers 1 and 2)
+                    frac1.numerator = std::stoi(num1);
+                    std::string num2;
+                    ss >> num2;
+                    frac1.denominator = std::stoi(num2);
+                    // check the third digit
+                    std::string num3;
+                    ss >> num3;
+                    size_t found3 = num3.find('.');
+                    if(found3 != std::string::npos) {
+                        double num2_double = std::stod(num2);
+
+                        size_t decimalPosition = num2.find('.');
+                        std::string afterDecimal = num2.substr(decimalPosition+1);
+                        int precision = afterDecimal.length();
+                        frac2.numerator = std::stoi(afterDecimal);
+                        frac2.denominator = pow(10, precision);
+                        std::string tempNum2 = num2.substr(0, decimalPosition);
+                        frac2.numerator = (frac2.denominator*std::stoi(tempNum2))+frac2.numerator;
+                    }
+
+                    // third digit is an integer, so the 4th digit is an integer as well
+                    else {
+                        std::string num4;
+                        ss >> num4;
+                        frac2.numerator = std::stoi(num3);
+                        frac2.denominator = std::stoi(num4);
+                    }
+
+                }
+                break;
+            }
+
+        }
         frac1.simplify();
         frac2.simplify();
         switch (choice) {
-            case 'a': {
+            case 'a':
+            case 'A':{
                 CFraction add = frac1 + frac2;
                 add.simplify();
                 std::cout << frac1 << " + " << frac2 << " = " << add << std::endl;
                 output << frac1 << " + " << frac2 << " = " << add << std::endl;
                 break;
             }
-            case 's': {
+            case 's':
+            case 'S':{
                 CFraction sub = frac1 - frac2;
                 sub.simplify();
                 std::cout << frac1 << " - " << frac2 << " = " << sub << std::endl;
                 output << frac1 << " - " << frac2 << " = " << sub << std::endl;
                 break;
             }
-            case 'm': {
+            case 'm':
+            case 'M':{
                 CFraction mul = frac1 * frac2;
                 mul.simplify();
                 std::cout << frac1 << " * " << frac2 << " = " << mul << std::endl;
@@ -137,6 +230,7 @@ std::istream& operator>>(std::istream &input, CFraction &frac1) {
                 break;
             }
             case 'd':
+            case 'D':
             {
                 CFraction div = frac1 / frac2;
                 div.simplify();
@@ -196,13 +290,3 @@ std::ostream& operator<<(std::ostream& output, CFraction& temp){
     return output;
 
 }
-
-
-
-/**
-* 1/2 + 2/4
- * 1 * 4 put that over 4 * 2
- * 2 * 2 put that over 4 * 2
- * N1 * D2 over D2 * D1
- * N2 * D1 over D2 * D1
-*/
