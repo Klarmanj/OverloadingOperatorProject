@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/CFraction.cpp
+CFraction.h
+C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/CFraction.h
+Exceptions.h
+C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/Exceptions.h
+sstream
+-
+fstream
+-
+
 C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/CFraction.h
 iostream
 -
@@ -13,12 +23,4 @@ iostream
 C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/Exceptions.h
 string
 -
-
-C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/main.cpp
-iostream
--
-CFraction.h
-C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/CFraction.h
-Exceptions.h
-C:/Users/rockb/CLionProjects/uOverloadingOperatorProject/Exceptions.h
 

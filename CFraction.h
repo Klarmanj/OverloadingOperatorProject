@@ -2,9 +2,10 @@
 #define UOVERLOADINGOPERATORPROJECT_CFRACTION_H
 #include <iostream>
 
+
 class CFraction {
     int numerator, denominator;
-//    static int count;
+    static int count;
 
 
 public:
@@ -22,8 +23,12 @@ public:
     bool operator==(const CFraction&) const;
     bool operator>(const CFraction&) const;
     bool operator<(const CFraction&) const;
-//    std::istream& operator>>(std::istream&, CFraction&) const;
+    friend std::istream& operator>>(std::istream&, CFraction&);
+    friend std::ostream& operator<<(std::ostream&, CFraction&);
     void simplify();
+    static int getcount() {
+        return count;
+    }
 };
 
 
