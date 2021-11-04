@@ -178,15 +178,15 @@ std::istream& operator>>(std::istream &input, CFraction &frac1) {
                     ss >> num3;
                     size_t found3 = num3.find('.');
                     if(found3 != std::string::npos) {
-                        double num2_double = std::stod(num2);
+                        double num3_double = std::stod(num3);
 
-                        size_t decimalPosition = num2.find('.');
-                        std::string afterDecimal = num2.substr(decimalPosition+1);
+                        size_t decimalPosition = num3.find('.');
+                        std::string afterDecimal = num3.substr(decimalPosition+1);
                         int precision = afterDecimal.length();
                         frac2.numerator = std::stoi(afterDecimal);
                         frac2.denominator = pow(10, precision);
-                        std::string tempNum2 = num2.substr(0, decimalPosition);
-                        frac2.numerator = (frac2.denominator*std::stoi(tempNum2))+frac2.numerator;
+                        std::string tempNum3 = num3.substr(0, decimalPosition);
+                        frac2.numerator = (frac2.denominator*std::stoi(tempNum3))+frac2.numerator;
                     }
 
                     // third digit is an integer, so the 4th digit is an integer as well
@@ -270,14 +270,10 @@ std::ostream& operator<<(std::ostream& output, CFraction& temp){
     // 2. if count > 1 && (count == num) && (den == 1) then print count only
     // 3. else, print count and num / den
 
-    if(number == 1){
-        outputString = "1";
-    }
-
-    if((number == temp.numerator) && (temp.denominator == 1)) {
-        // print count only
+    if(number == 1 && (temp.denominator == temp.numerator)){
         outputString = std::to_string(number);
     }
+
     else if(number == 0){
         outputString = std::to_string(newNumerator) + "/" + std::to_string(temp.denominator);
     }
